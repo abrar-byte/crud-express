@@ -1,27 +1,26 @@
-import {Sequelize} from "sequelize";
+import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
-const User = db.define('users',{
-    tanggalpasang: DataTypes.STRING,
+const User = db.define(
+  "users",
+  {
+    tanggalPasang: DataTypes.DATE,
     name: DataTypes.STRING,
-    nohp: DataTypes.STRING,
-    noid: DataTypes.STRING,
+    noHp: DataTypes.BIGINT,
+    noId: DataTypes.BIGINT,
     paket: DataTypes.STRING,
-    jumlahtagihan: DataTypes.STRING,
-    jatuhtempopembayaran: DataTypes.STRING,
-    buktipembayaran: DataTypes.STRING,
-    hargapembayaran: DataTypes.STRING,
-    tanggalpembayaran: DataTypes.STRING,
-    sisapiutang: DataTypes.STRING,
-    keterangan: DataTypes.STRING
-},{
-    freezeTableNama:true
-});
+    alamat: DataTypes.TEXT,
+    keterangan: DataTypes.TEXT,
+  },
+  {
+    freezeTableName: true,
+  }
+);
 
 export default User;
 
-(async()=>{
-    await db.sync();
+(async () => {
+  await db.sync();
 })();
